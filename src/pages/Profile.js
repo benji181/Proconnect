@@ -54,7 +54,24 @@ const ProfilePage = () => {
     resumeUrl: '',
     applicationTracker: [],
   });
-
+  useEffect(() => {
+    const loadProfile = async () => {
+      if (!user) return;
+      setLoading(true);
+      try {
+        const docRef = doc(db, 'userProfiles', user.uid);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          setProfileData({ ...docSnap.data(), email: user.email || '' });
+        }
+      } catch (error) {
+        setError('Failed to load profile');
+      }
+      setLoading(false);
+    };
+    loadProfile();
+  }, [user]);
+  
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (u) => {
       setUser(u);
