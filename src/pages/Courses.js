@@ -99,7 +99,7 @@ const StepByStepQuiz = ({ questions, onComplete }) => {
 const CoursesPage = () => {
   const [selectedCourse, setSelectedCourse] = useState(null);
   const [currentLessonIndex, setCurrentLessonIndex] = useState(0);
-  const [progress, setProgress] = useState(() => {
+  const [progress, ] = useState(() => {
     const saved = localStorage.getItem('courseProgress');
     return saved ? JSON.parse(saved) : {};
   });

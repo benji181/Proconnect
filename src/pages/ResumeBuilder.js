@@ -9,8 +9,6 @@ import {
   Autocomplete,
   List,
   ListItem,
-  ListItemText,
-  Paper,
 } from '@mui/material';
 import { styled } from '@mui/system';
 import Footer from '../components/Footer';
@@ -46,10 +44,10 @@ const VvipButton = styled(Button)({
   },
 });
 
-const VvipListItem = styled(ListItem)({
-  borderBottom: '1px solid #333',
-  padding: '12px 0',
-});
+// const VvipListItem = styled(ListItem)({
+//   borderBottom: '1px solid #333',
+//   padding: '12px 0',
+// });
 
 const roles = [
   {
